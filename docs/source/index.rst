@@ -1,24 +1,8 @@
-Welcome to GitStats documentation!
-==================================
+mypackage documentation
+=======================
 
-.. include:: ../../README.rst
-   :start-after: .. start-of-about
-   :end-before: .. end-of-about
+Replace with your project documentation.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Getting Started
-
-   getting-started
-   configuration
-   integration
-   ai-integration
-   faq
-
-.. toctree::
-   :maxdepth: 2
-   :caption: About
-
-   license
-   contributors
-   changelog
+   :caption: Contents:

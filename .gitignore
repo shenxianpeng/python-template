@@ -1,15 +1,15 @@
 venv/
 .venv/
-__pycache__
-gitstats/__pycache__/
-gitstats.egg-info
-gitstory.egg-info
+__pycache__/
+*.egg-info/
 build/
-gitstats-report
-test-report*
-test-report*.json
-output/
-docs/build
+dist/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+docs/build/
+*.pyc
 
 # AI generated files
 memory/

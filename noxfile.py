@@ -1,48 +1,24 @@
-import os
 import nox
-import shutil
-from pathlib import Path
 
 
 @nox.session
 def lint(session: nox.Session) -> None:
-    """Run linter"""
+    """Run linters."""
     session.install("pre-commit")
     session.run("pre-commit", "run", "--all-files", external=True)
 
 
 @nox.session
-def build(session: nox.Session) -> None:
-    """Generate gitstats report and json file"""
-    report_dir = Path("test-report")
-    if report_dir.exists():
-        shutil.rmtree(report_dir)
+def test(session: nox.Session) -> None:
+    """Run tests."""
     session.install("--upgrade", "pip")
-    session.install("-e", ".")
-    session.run("gitstats", ".", str(report_dir), "-f", "json", external=True)
-
-
-@nox.session
-def preview(session: nox.Session) -> None:
-    """Preview gitstats report in local"""
-    build(session)  # Generate report first
-    python_cmd = "python" if os.name == "nt" else "python3"
-    session.run(
-        python_cmd,
-        "-m",
-        "http.server",
-        "8000",
-        "--bind",
-        "127.0.0.1",
-        "-d",
-        "test-report",
-        external=True,
-    )
+    session.install("-e", ".[test]")
+    session.run("pytest", *session.posargs)
 
 
 @nox.session
 def docs(session: nox.Session) -> None:
-    """Build docs"""
+    """Build docs."""
     session.install("--upgrade", "pip")
     session.install("-e", ".[docs]")
     session.run("sphinx-build", "-b", "html", "docs/source", "docs/build/html")
@@ -50,5 +26,6 @@ def docs(session: nox.Session) -> None:
 
 @nox.session(name="docs-live")
 def docs_live(session: nox.Session) -> None:
+    """Live docs preview."""
     session.install("-e", ".[docs]")
     session.run("sphinx-autobuild", "docs/source", "docs/build/html", external=True)

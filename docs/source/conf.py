@@ -1,21 +1,9 @@
-# Read the Docs configuration file
-#
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-from datetime import datetime
+"""Sphinx configuration."""
 
-# Required
-project = "GitStats"
+project = "mypackage"
 author = "Xianpeng Shen"
-copyright = (
-    f"2008 - {datetime.now().year}, Xianpeng Shen, Heikki Hokkainen, and contributors"
-)
+copyright = f"2024, {author}"
 
-source_suffix = {
-    ".rst": "restructuredtext",
-}
+extensions = []
 
 html_theme = "sphinx_rtd_theme"
-html_title = "gitstats"
-html_short_title = "gitstats"
-
-exclude_patterns = ["source/TODO.md"]

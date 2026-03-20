@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=62.6", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mypackage"
+description = "Replace with your project description"
+readme = "README.md"
+authors = [
+    { name = "Xianpeng Shen", email = "xianpeng.shen@gmail.com" },
+]
+
+requires-python = ">=3.9"
+dynamic = ["version"]
+dependencies = []
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+mypackage = "mypackage.main:main"
+
+[project.urls]
+source = "https://github.com/shenxianpeng/mypackage"
+tracker = "https://github.com/shenxianpeng/mypackage/issues"
+
+[project.optional-dependencies]
+dev = ["nox"]
+docs = ["sphinx", "sphinx-rtd-theme", "sphinx-autobuild"]
+test = ["pytest", "pytest-cov"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+version_scheme = "no-guess-dev"
+local_scheme = "no-local-version"
+fallback_version = "0.0.0"
+
+[tool.mypy]
+show_error_codes = true
+show_column_numbers = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -10,7 +10,7 @@ This is a **Python project template**. When starting a new Python project, fork/
 - Python 3.9+ | src layout | setuptools-scm (versioning)
 - Linting: ruff, mypy, pre-commit
 - Testing: pytest
-- Docs: Sphinx + sphinx-rtd-theme
+- Docs: MkDocs + mkdocs-material
 - Task runner: Nox
 
 ## Key Commands
@@ -23,7 +23,7 @@ This is a **Python project template**. When starting a new Python project, fork/
 ```
 src/mypackage/   ← rename to your package name
 tests/
-docs/source/
+docs/
 ```
 
 ## Preferences

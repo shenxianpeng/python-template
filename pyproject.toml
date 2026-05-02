@@ -36,7 +36,7 @@ tracker = "https://github.com/shenxianpeng/mypackage/issues"
 
 [project.optional-dependencies]
 dev = ["nox"]
-docs = ["sphinx", "sphinx-rtd-theme", "sphinx-autobuild"]
+docs = ["mkdocs", "mkdocs-material"]
 test = ["pytest", "pytest-cov"]
 
 [tool.setuptools.packages.find]

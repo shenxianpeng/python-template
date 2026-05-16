@@ -6,14 +6,17 @@ import sys
 from datetime import datetime
 from importlib.resources import files
 from pathlib import Path
-from importlib.resources.abc import Traversable
+try:
+    from importlib.resources.abc import Traversable  # Python 3.11+
+except ImportError:
+    from importlib.abc import Traversable  # Python 3.10
 
 # File extensions that should be processed for placeholder replacement
 _TEXT_EXTENSIONS = frozenset(
     {".py", ".toml", ".yml", ".yaml", ".md", ".txt", ".cfg", ".ini", ".json"}
 )
 # Files without extensions that should still be processed
-_TEXT_NAMES = frozenset({".gitignore", ".codespellrc", "LICENSE", "Makefile"})
+_TEXT_NAMES = frozenset({".gitignore", "LICENSE", "Makefile"})
 
 # Placeholder prefix used in the template directory name
 _PKG_PLACEHOLDER = "{{package_name}}"

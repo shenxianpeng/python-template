@@ -11,6 +11,34 @@ and MkDocs documentation.
 pip install python-template
 ```
 
+## Quick Start — Bootstrap a New Project
+
+### Using `python-template init`
+
+```bash
+pip install python-template
+python-template init my-awesome-project
+```
+
+This creates a `my-awesome-project/` directory with everything set up.
+
+```bash
+python-template init my-awesome-project \
+    --author "Your Name" \
+    --email "you@example.com" \
+    --description "An awesome Python package" \
+    --github-user your-gh-username
+```
+
+### Using GitHub "Use this template"
+
+<https://github.com/shenxianpeng/python-template>
+
+Click the green **"Use this template"** button → **"Create a new repository"**,
+then clone your new repo and start coding.
+
+---
+
 ## Use
 
 ```bash

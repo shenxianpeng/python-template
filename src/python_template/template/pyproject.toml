@@ -3,18 +3,18 @@ requires = ["setuptools>=82.0.1", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-template"
-description = "A reusable Python project template with packaging, tests, linting, and docs ready for PyPI."
+name = "{{project_name}}"
+description = "{{description}}"
 readme = "README.md"
 authors = [
-    { name = "Xianpeng Shen", email = "xianpeng.shen@gmail.com" },
+    { name = "{{author_name}}", email = "{{author_email}}" },
 ]
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dynamic = ["version"]
 dependencies = []
-keywords = ["python", "template", "packaging", "pypi", "nox", "pytest"]
+keywords = []
 
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -29,12 +29,12 @@ classifiers = [
 ]
 
 [project.scripts]
-python-template = "python_template.main:main"
+{{project_name}} = "{{package_name}}.main:main"
 
 [project.urls]
-Documentation = "https://shenxianpeng.github.io/python-template/"
-Source = "https://github.com/shenxianpeng/python-template"
-Tracker = "https://github.com/shenxianpeng/python-template/issues"
+Documentation = "https://{{github_user}}.github.io/{{project_name}}/"
+Source = "https://github.com/{{github_user}}/{{project_name}}"
+Tracker = "https://github.com/{{github_user}}/{{project_name}}/issues"
 
 [project.optional-dependencies]
 dev = ["nox"]
@@ -43,9 +43,6 @@ test = ["pytest", "pytest-cov"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.setuptools.package-data]
-python_template = ["template/**/*"]
 
 [tool.setuptools_scm]
 version_scheme = "no-guess-dev"

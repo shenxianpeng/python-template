@@ -2,6 +2,8 @@ ci:
   autoupdate_schedule: quarterly
   autofix_prs: true
 
+exclude: ^src/python_template/template/
+
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0

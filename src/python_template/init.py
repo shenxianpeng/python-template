@@ -1,6 +1,5 @@
 """Project initialization from the python-template."""
 
-
 import shutil
 import sys
 from datetime import datetime
@@ -10,7 +9,7 @@ from importlib.resources.abc import Traversable
 
 # File extensions that should be processed for placeholder replacement
 _TEXT_EXTENSIONS = frozenset(
-    {".py", ".toml", ".yml", ".yaml", ".md", ".txt", ".cfg", ".ini", ".json"}
+    {".py", ".toml", ".yml", ".yaml", ".md", ".txt", ".cfg", ".ini", ".json", ".j2"}
 )
 # Files without extensions that should still be processed
 _TEXT_NAMES = frozenset({".gitignore", ".codespellrc", "LICENSE", "Makefile"})
@@ -82,13 +81,29 @@ def _copy_tree(
             dest_path.mkdir(parents=True, exist_ok=True)
             _copy_tree(item, dest_path, replacements, rename_pkg=rename_pkg)
         else:
+            # Strip .j2 suffix from template files (used to hide from linters)
+            if dest_name.endswith(".j2"):
+                dest_name = dest_name[:-3]
+                dest_path = dst / dest_name
             dest_path.parent.mkdir(parents=True, exist_ok=True)
-            if _should_process(item.name, item.suffix if hasattr(item, "suffix") else ""):
+            if _should_process(
+                item.name, item.suffix if hasattr(item, "suffix") else ""
+            ):
                 content = item.read_text(encoding="utf-8")
                 content = _apply_replacements(content, replacements)
                 dest_path.write_text(content, encoding="utf-8")
             else:
                 dest_path.write_bytes(item.read_bytes())
+
+
+def _copy_workflows(dst: Path) -> None:
+    """Copy GitHub Actions workflow files into ``dst/.github/workflows/``."""
+    workflows_src = files("python_template") / "_workflows"
+    workflows_dst = dst / ".github" / "workflows"
+    workflows_dst.mkdir(parents=True, exist_ok=True)
+    for item in workflows_src.iterdir():
+        if item.is_file():
+            (workflows_dst / item.name).write_bytes(item.read_bytes())
 
 
 def init_project(
@@ -157,6 +172,9 @@ def init_project(
     template_root = files("python_template") / "template"
     target.mkdir(parents=True)
     _copy_tree(template_root, target, replacements, rename_pkg=package_name)
+
+    # Copy GitHub Actions workflows (no placeholder processing needed)
+    _copy_workflows(target)
 
     # Print success message
     print(f"✨ Project '{project_name}' created at {target}")

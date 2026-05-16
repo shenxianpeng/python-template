@@ -1,10 +1,10 @@
-site_name: mypackage
-site_description: Replace with your project description
+site_name: python-template
+site_description: A reusable Python project template ready for PyPI
 site_author: Xianpeng Shen
-copyright: "&copy; 2024 Xianpeng Shen"
+copyright: "&copy; 2026 Xianpeng Shen"
 
-repo_url: https://github.com/shenxianpeng/mypackage
-repo_name: shenxianpeng/mypackage
+repo_url: https://github.com/shenxianpeng/python-template
+repo_name: shenxianpeng/python-template
 
 theme:
   name: material
@@ -29,3 +29,4 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Release: release.md

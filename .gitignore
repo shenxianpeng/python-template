@@ -9,6 +9,8 @@ dist/
 .ruff_cache/
 .pytest_cache/
 docs/build/
+site/
+uv.lock
 *.pyc
 
 # AI generated files

@@ -4,7 +4,10 @@
 Xianpeng Shen (shenxianpeng), DevOps engineer.
 
 ## About This Repo
-This is a **Python project template**. When starting a new Python project, fork/copy this repo and rename `mypackage` to your project name.
+This is a **Python project template** published as `python-template`.
+The import package is `python_template`, following the normal PyPI convention
+where distribution names may contain hyphens and Python import names use
+underscores.
 
 ## Tech Stack
 - Python 3.9+ | src layout | setuptools-scm (versioning)
@@ -21,7 +24,7 @@ This is a **Python project template**. When starting a new Python project, fork/
 
 ## Structure
 ```
-src/mypackage/   ← rename to your package name
+src/python_template/
 tests/
 docs/
 ```

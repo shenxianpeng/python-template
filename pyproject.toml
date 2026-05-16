@@ -3,21 +3,22 @@ requires = ["setuptools>=82.0.1", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mypackage"
-description = "Replace with your project description"
+name = "python-template"
+description = "A reusable Python project template with packaging, tests, linting, and docs ready for PyPI."
 readme = "README.md"
 authors = [
     { name = "Xianpeng Shen", email = "xianpeng.shen@gmail.com" },
 ]
-
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.9"
 dynamic = ["version"]
 dependencies = []
+keywords = ["python", "template", "packaging", "pypi", "nox", "pytest"]
 
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -28,11 +29,12 @@ classifiers = [
 ]
 
 [project.scripts]
-mypackage = "mypackage.main:main"
+python-template = "python_template.main:main"
 
 [project.urls]
-source = "https://github.com/shenxianpeng/mypackage"
-tracker = "https://github.com/shenxianpeng/mypackage/issues"
+Documentation = "https://shenxianpeng.github.io/python-template/"
+Source = "https://github.com/shenxianpeng/python-template"
+Tracker = "https://github.com/shenxianpeng/python-template/issues"
 
 [project.optional-dependencies]
 dev = ["nox"]

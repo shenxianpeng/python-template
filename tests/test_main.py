@@ -1,10 +1,10 @@
-"""Tests for mypackage.main."""
+"""Tests for python_template.main."""
 
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from mypackage.main import main
+from python_template.main import get_message, main
 
 if TYPE_CHECKING:
     from pytest import CaptureFixture
@@ -13,4 +13,4 @@ if TYPE_CHECKING:
 def test_main(capsys: CaptureFixture[str]) -> None:
     main()
     captured = capsys.readouterr()
-    assert "Hello from mypackage!" in captured.out
+    assert get_message() in captured.out

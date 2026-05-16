@@ -1,35 +1,58 @@
-# mypackage
+# python-template
 
-> Replace this with your project description.
+`python-template` is a reusable Python project template with packaging, tests,
+linting, documentation, and PyPI publishing configuration already wired in.
+
+Use it as a starting point for small Python packages that should be installable
+with `pip`, testable with `pytest`, and releasable through GitHub Actions.
 
 ## Installation
 
 ```bash
-pip install mypackage
+pip install python-template
 ```
 
 ## Usage
 
 ```python
-from mypackage.main import main
+from python_template.main import get_message
 
-main()
+print(get_message())
 ```
 
 Or via command line:
 
 ```bash
-mypackage
+python-template
+python -m python_template
 ```
 
 ## Development
 
 ```bash
-pip install nox
-nox -s lint    # run linters
-nox -s test    # run tests
-nox -s docs    # build docs
+python -m pip install --upgrade pip nox
+nox -s test
+nox -s lint
+nox -s docs
 ```
+
+## Release to PyPI
+
+Before publishing, verify that the package builds cleanly:
+
+```bash
+python -m pip install --upgrade build twine
+python -m build
+python -m twine check dist/*
+```
+
+This repository includes `.github/workflows/publish-pypi.yml`:
+
+- Manual `workflow_dispatch` publishes to TestPyPI.
+- Publishing a GitHub release publishes to PyPI.
+
+Configure trusted publishing for this project on PyPI/TestPyPI, or add the
+repository secrets expected by your publishing workflow before releasing.
 
 ## License
 

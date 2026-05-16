@@ -1,3 +1,5 @@
+from glob import glob
+
 import nox
 
 
@@ -14,6 +16,15 @@ def test(session: nox.Session) -> None:
     session.install("--upgrade", "pip")
     session.install("-e", ".[test]")
     session.run("pytest", *session.posargs)
+
+
+@nox.session
+def build(session: nox.Session) -> None:
+    """Build and validate distribution artifacts."""
+    session.install("--upgrade", "pip")
+    session.install("build", "twine")
+    session.run("python", "-m", "build")
+    session.run("twine", "check", *sorted(glob("dist/*")))
 
 
 @nox.session

@@ -96,16 +96,6 @@ def _copy_tree(
                 dest_path.write_bytes(item.read_bytes())
 
 
-def _copy_workflows(dst: Path) -> None:
-    """Copy GitHub Actions workflow files into ``dst/.github/workflows/``."""
-    workflows_src = files("python_template") / "_workflows"
-    workflows_dst = dst / ".github" / "workflows"
-    workflows_dst.mkdir(parents=True, exist_ok=True)
-    for item in workflows_src.iterdir():
-        if item.is_file():
-            (workflows_dst / item.name).write_bytes(item.read_bytes())
-
-
 def init_project(
     project_name: str,
     *,
@@ -172,10 +162,6 @@ def init_project(
     template_root = files("python_template") / "template"
     target.mkdir(parents=True)
     _copy_tree(template_root, target, replacements, rename_pkg=package_name)
-
-    # Copy GitHub Actions workflows (no placeholder processing needed)
-    _copy_workflows(target)
-
     # Print success message
     print(f"✨ Project '{project_name}' created at {target}")
     print()

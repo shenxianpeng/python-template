@@ -1,6 +1,6 @@
-# python-template
+# pyrepo-init
 
-`python-template` is a reusable Python project template prepared for PyPI
+`pyrepo-init` is a reusable Python repository starter prepared for PyPI
 distribution. It includes a `src/` package layout, setuptools-based packaging,
 dynamic versions from Git tags, pytest tests, pre-commit linting, Nox sessions,
 and MkDocs documentation.
@@ -8,18 +8,18 @@ and MkDocs documentation.
 ## Install
 
 ```bash
-pip install python-template
+pip install pyrepo-init
 ```
 
 ## Use
 
 ```bash
-python-template
-python -m python_template
+pyrepo-init
+python -m pyrepo_init
 ```
 
 ```python
-from python_template.main import get_message
+from pyrepo_init.main import get_message
 
 print(get_message())
 ```
@@ -36,7 +36,7 @@ nox -s docs
 ## Package Layout
 
 ```text
-src/python_template/   Python package
+src/pyrepo_init/       Python package
 tests/                 pytest test suite
 docs/                  MkDocs documentation
 ```

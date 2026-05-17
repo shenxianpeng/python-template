@@ -1,10 +1,10 @@
-"""Tests for python_template.main."""
+"""Tests for pyrepo_init.main."""
 
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from python_template.main import get_message, main
+from pyrepo_init.main import get_message, main
 
 if TYPE_CHECKING:
     from pytest import CaptureFixture

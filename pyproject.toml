@@ -3,8 +3,8 @@ requires = ["setuptools>=82.0.1", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-template"
-description = "A reusable Python project template with packaging, tests, linting, and docs ready for PyPI."
+name = "pyrepo-init"
+description = "A reusable Python repository starter with packaging, tests, linting, and docs ready for PyPI."
 readme = "README.md"
 authors = [
     { name = "Xianpeng Shen", email = "xianpeng.shen@gmail.com" },
@@ -14,7 +14,7 @@ license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dynamic = ["version"]
 dependencies = []
-keywords = ["python", "template", "packaging", "pypi", "nox", "pytest"]
+keywords = ["python", "repository", "template", "packaging", "pypi", "nox", "pytest"]
 
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -29,12 +29,12 @@ classifiers = [
 ]
 
 [project.scripts]
-python-template = "python_template.main:main"
+pyrepo-init = "pyrepo_init.main:main"
 
 [project.urls]
-Documentation = "https://shenxianpeng.github.io/python-template/"
-Source = "https://github.com/shenxianpeng/python-template"
-Tracker = "https://github.com/shenxianpeng/python-template/issues"
+Documentation = "https://shenxianpeng.github.io/pyrepo-init/"
+Source = "https://github.com/shenxianpeng/pyrepo-init"
+Tracker = "https://github.com/shenxianpeng/pyrepo-init/issues"
 
 [project.optional-dependencies]
 dev = ["nox"]

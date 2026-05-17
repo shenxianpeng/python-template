@@ -1,4 +1,5 @@
 from glob import glob
+from shutil import rmtree
 
 import nox
 
@@ -23,6 +24,7 @@ def build(session: nox.Session) -> None:
     """Build and validate distribution artifacts."""
     session.install("--upgrade", "pip")
     session.install("build", "twine")
+    rmtree("dist", ignore_errors=True)
     session.run("python", "-m", "build")
     session.run("twine", "check", *sorted(glob("dist/*")))
 

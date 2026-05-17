@@ -1,10 +1,10 @@
-site_name: python-template
-site_description: A reusable Python project template ready for PyPI
+site_name: pyrepo-init
+site_description: A reusable Python repository starter ready for PyPI
 site_author: Xianpeng Shen
 copyright: "&copy; 2026 Xianpeng Shen"
 
-repo_url: https://github.com/shenxianpeng/python-template
-repo_name: shenxianpeng/python-template
+repo_url: https://github.com/shenxianpeng/pyrepo-init
+repo_name: shenxianpeng/pyrepo-init
 
 theme:
   name: material

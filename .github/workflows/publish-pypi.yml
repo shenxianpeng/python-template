@@ -1,4 +1,4 @@
-name: Upload Python Package
+name: Publish pyrepo-init
 
 on:
   release:
@@ -28,11 +28,11 @@ jobs:
       run: python -m build
     - name: Check distribution
       run: twine check dist/*
-    - name: Publish package (to TestPyPI)
+    - name: Publish pyrepo-init to TestPyPI
       if: github.event_name == 'workflow_dispatch'
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         repository-url: https://test.pypi.org/legacy/
-    - name: Publish package (to PyPI)
+    - name: Publish pyrepo-init to PyPI
       if: github.event_name != 'workflow_dispatch'
       uses: pypa/gh-action-pypi-publish@release/v1

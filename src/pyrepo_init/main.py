@@ -1,11 +1,11 @@
-"""Command-line entry point for python-template."""
+"""Command-line entry point for pyrepo-init."""
 
 from __future__ import annotations
 
 
 def get_message() -> str:
     """Return the default command-line message."""
-    return "python-template is installed and ready to use."
+    return "pyrepo-init is installed and ready to use."
 
 
 def main() -> None:

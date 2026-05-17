@@ -1,14 +1,14 @@
 # Release
 
-This project is published to PyPI as `python-template`. The import package is
-`python_template`.
+This project is published to PyPI as `pyrepo-init`. The import package is
+`pyrepo_init`.
 
 ## Before Publishing
 
 Confirm the package name is available or owned by you on PyPI and TestPyPI:
 
-- <https://pypi.org/project/python-template/>
-- <https://test.pypi.org/project/python-template/>
+- <https://pypi.org/project/pyrepo-init/>
+- <https://test.pypi.org/project/pyrepo-init/>
 
 Run the local release checks:
 
@@ -36,10 +36,6 @@ The GitHub workflow `.github/workflows/publish-pypi.yml` supports two flows:
 - Run the workflow manually to publish to TestPyPI.
 - Publish a GitHub release to publish to PyPI.
 
-The workflow currently expects these repository secrets:
-
-- `TEST_PYPI_TOKEN`
-- `PYPI_API_TOKEN`
-
-You can also configure PyPI trusted publishing for this GitHub repository and
-remove token-based secrets from the workflow later.
+Configure PyPI trusted publishing for `shenxianpeng/pyrepo-init` on PyPI and
+TestPyPI before releasing. The workflow uses GitHub's OIDC token and does not
+require API token secrets.
